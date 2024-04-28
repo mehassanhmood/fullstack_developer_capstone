@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="row justify-content-center">
+        <header class="text-center text-primary">
+            <h1>Contact Us</h1>
+            <p>Welcome to Our Car Dealership Contact Page</p>
+        </header>
+    </div>
+
+    <section class="row justify-content-center" id="contact-form">
+        <h2 class="border justify-content-center text-center shadow-lg m-2 py-2">Send Us a Message</h2>
+        <form class=" justify-content-center text-center" action="submit_form.php" method="post">
+            <label for="name">Your Name</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Your Email</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">Your Phone Number</label><br>
+            <input type="tel" id="phone" name="phone" required><br>
+
+            <label for="message">Message</label><br>
+            <textarea id="message" name="message" required></textarea><br>
+
+            <button class="btn py-2 btn-primary m-2" type="button">Send Message</button>
+        </form>
+    </section>
+
+</body>
+</html>
