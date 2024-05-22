@@ -77,7 +77,7 @@ def registration(request):
     else :
         data = {"userName":username,"error":"Already Registered"}
         return JsonResponse(data)
-
+@csrf_exempt
 def get_cars(request):
     count = CarMake.objects.filter().count()
     print(count)
@@ -95,6 +95,7 @@ def get_cars(request):
 # def get_dealerships(request):
 # ...
 #Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
+# @csrf_exempt
 def get_dealerships(request, state="All"):
     if(state == "All"):
         endpoint = "/fetchDealers"
@@ -105,6 +106,7 @@ def get_dealerships(request, state="All"):
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
 # def get_dealer_reviews(request,dealer_id):
 # ...
+@csrf_exempt
 def get_dealer_details(request, dealer_id):
     if(dealer_id):
         endpoint = "/fetchDealer/"+str(dealer_id)
@@ -115,6 +117,7 @@ def get_dealer_details(request, dealer_id):
 # Create a `get_dealer_details` view to render the dealer details
 # def get_dealer_details(request, dealer_id):
 # ...
+@csrf_exempt
 def get_dealer_reviews(request, dealer_id):
     # if dealer id has been provided
     if(dealer_id):
@@ -131,6 +134,7 @@ def get_dealer_reviews(request, dealer_id):
 # Create a `add_review` view to submit a review
 # def add_review(request):
 # ...
+@csrf_exempt
 def add_review(request):
     if(request.user.is_anonymous == False):
         data = json.loads(request.body)
