@@ -28,8 +28,9 @@ try {
     Dealerships.insertMany(dealerships_data.dealerships);
   });
   
-} catch (error) {
-  res.status(500).json({ "error": 'Error fetching documents' });
+} catch (err) {
+	console.error('Error fetching documents: ', err);
+	res.status(500).json({ error: 'Error fetching documents' });
 }
 
 
