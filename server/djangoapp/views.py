@@ -99,7 +99,7 @@ def get_cars(request):
 # def get_dealerships(request):
 # ...
 # Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
- @csrf_exempt
+@csrf_exempt
 def get_dealerships(request, state="All"):
     if (state == "All"):
         endpoint = "/fetchDealers"
