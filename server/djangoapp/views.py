@@ -69,12 +69,12 @@ def registration(request):
     # If it is a new user
     if not username_exist:
         # Create user in auth_user table
-        user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name,password=password, email=email)
+        user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, password=password, email=email)
         # Login the user and redirect to list page
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
         return JsonResponse(data)
-    else :
+    else:
         data = {"userName": username, "error": "Already Registered"}
         return JsonResponse(data)
 @csrf_exempt
@@ -94,7 +94,7 @@ def get_cars(request):
 # a list of dealerships
 # def get_dealerships(request):
 # ...
-#Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
+# Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
 # @csrf_exempt
 def get_dealerships(request, state="All"):
     if(state == "All"):
@@ -140,8 +140,9 @@ def add_review(request):
         data = json.loads(request.body)
         try:
             response = post_review(data)
-            return JsonResponse({"status": 200})
+            return JsonResponse({"status": 200, "response": response})
         except:
-            return JsonResponse({"status": 401, "message": "Error in posting review"})
+            return JsonResponse({"status": 401,
+                                 "message": "Error in posting review"})
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
