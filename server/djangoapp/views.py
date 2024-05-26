@@ -37,6 +37,7 @@ def login_user(request):
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
 
+
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
     logout(request)
@@ -69,10 +70,10 @@ def registration(request):
     if not username_exist:
         # Create user in auth_user table
         user = User.objects.create_user(username=username,
-                                        first_name=first_name,
-                                        last_name=last_name, 
-                                        password=password, 
-                                        email=email)
+                                    first_name=first_name,
+                                    last_name=last_name, 
+                                    password=password, 
+                                    email=email)
         # Login the user and redirect to list page
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
@@ -100,7 +101,8 @@ def get_cars(request):
 # a list of dealerships
 # def get_dealerships(request):
 # ...
-# Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
+# Update the `get_dealerships` render list of dealerships all by default,
+#particular state if state is passed
 @csrf_exempt
 def get_dealerships(request, state="All"):
     if (state == "All"):
